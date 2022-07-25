@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Grocery items</h1>
+
+    {% for instance in object_list %}
+    <p>{{ instance.id }} - {{instance.name}} (Quantity: {{instance.quantity}}) - <a href='{{ instance.get_absolute_url }}'>[Details]</a></p>
+    {% endfor %}
+{% endblock %}
+
+
