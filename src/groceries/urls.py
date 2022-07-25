@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, reverse
+from django.urls import path, reverse, reverse_lazy
 
 from .views import (
     grocery_inventory_view,
