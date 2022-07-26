@@ -52,7 +52,7 @@ def grocery_detail_view(request, id):
     return render(request, "groceries/grocery_detail.html", context)
 
 
-# For testing and developing views with bootstrap
+# For testing and developing inventory view with bootstrap
 def grocery_development_view(request):
     queryset = Grocery.objects.all()
     context = {
@@ -60,3 +60,14 @@ def grocery_development_view(request):
     }
 
     return render(request, 'groceries/grocery_development.html', context)
+
+# For testing and developing new concepts with bootstrap
+
+
+def grocery_development_view0(request):
+    queryset = Grocery.objects.all()
+    context = {
+        "object_list": queryset
+    }
+
+    return render(request, 'groceries/grocery_development_0.html', context)

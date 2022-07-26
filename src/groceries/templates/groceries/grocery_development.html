@@ -17,16 +17,32 @@
       border: 2px solid #fff;
       color: #fff;
     }
+    .child{
+      background-color: #2041d3
+    }
   </style>
 </head>
 
 <body>
   <h1>Hello, world!!!</h1>
+  <!-- Simple fluid container border
   <div class="container-fluid border"> Content 
     <div class="row">
       <div class="col">Col 1</div>
       <div class="col">Col 2</div>
       <div class="col">Col 3</div>
+      <div class="col">Col 4</div>
+      
+    </div>
+  </div>
+  -->
+  <div class="container my-5 "> Content 
+    <div class="row gx-5 gy-5">
+      <div class="col-6"><div class="child">1</div></div>
+      <div class="col-6"><div class="child">2</div></div>
+      <div class="col-6"><div class="child">3</div></div>
+      <div class="col-6"><div class="child">4</div></div>
+      
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
