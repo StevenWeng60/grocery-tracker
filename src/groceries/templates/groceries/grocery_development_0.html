@@ -2,36 +2,94 @@
 <html lang="en">
 
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- <title>Basic HTML File</title>
- <link rel="stylesheet" href="static/developmentstyle.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Basic HTML File</title>
+  <!--  Bootstrap css
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+  -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'developmentstyle.css' %}?{% now "U"}">
+  <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- 5 main componenets to a webpage (Header, Nav, Main, Aside(Often placed in main), Footer)-->
-  <header>
-    <h1>
-      TITLE
-    </h1>
-  </header>
+  <div class="container">
+    <!-- Top header -->
+    <header>
+      <h1>Grocery Tracker</h1>
+    </header>
 
-  <nav>
+    <!-- Top navbar-->
+    <nav>
+      <div class="home">
+        <a href="http://127.0.0.1:8000/"><h1>Home</h1></a>
+      </div>
+      <div class="inventory">
+        <a href="#"><h1>Inventory</h1></a>
+      </div>
+      <div class="modifyinventory">
+        <a href="http://127.0.0.1:8000/groceries/insert"><h1>Modify</h1></a>
+      </div>
+      <div class="grocerylist">
+        <a href="#"><h1>Grocery List</h1></a>
+      </div>
+
+    </nav>
+
+    <!-- Main content (Grocery inventory & sidenav)-->
+    <main>
+      <!-- Grocery inventory -->
+      <div class="inventorycontainer">
+        {% for instance in object_list %}
+        <div class="box">{{ instance.name }}<br> Quantity: {{ instance.quantity }}</div>
+        {% endfor %}
+      </div>
+    </main>
+
+    <!-- Sorting tab -->
+    <div class="sorter">
+      <h1>SORTING SECTION</h1>
+    </div>
+
+    <!-- Sidebar -->
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <h1>Sidebar</h1>
+      <ul>
+        <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+        <li><a href="#"><i class="fa-solid fa-hammer"></i>Insert</a></li>
+        <li><a href="#"><i class="fa-solid fa-trash"></i>Delete</a></li>
+        <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li>
+        <li><a href="#"><i class="fa-solid fa-id-card"></i>Contact</a></li>
+      </ul>
+    </div>
     
-  </nav>
+    <!-- Footer -->
+    <footer>
+    </footer>
 
-  <main>
-    <h2>
-      hello
-    </h2>
-    <aside>
+  </div>
 
-    </aside>
-  </main>
+    <!-- Bootstrap Javascript 
 
-  <footer>
-    
-  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+
+    -->
+
+    <!-- Javascript -->
+    <!--<script src="static/js/bootstrap.js"></script>
+  -->
 </body>
 
 </html>
