@@ -1,8 +1,13 @@
-/* CSS for grocery inventory block */
-main {
- display: inline-block;
+/* CSS for inventory option in Nav */
+nav .inventory>a {
+ text-decoration: underline;
 }
 
+nav .inventory>a:hover {
+ color: rgb(42, 76, 112);
+}
+
+/* CSS for grocery inventory block */
 .inventorycontainer {
  height: 70vh;
  max-width: 150rem;

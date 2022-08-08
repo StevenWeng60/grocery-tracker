@@ -1,0 +1,12 @@
+/* CSS for modify option in NAV */
+nav .modifyinventory>a {
+ text-decoration: underline;
+}
+
+nav .modifyinventory>a:hover {
+ color: rgb(42, 76, 112);
+}
+
+main {
+ height: 60vh;
+}

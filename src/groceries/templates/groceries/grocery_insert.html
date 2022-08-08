@@ -1,26 +1,19 @@
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Modify</title>
- {% load static %}
- <link rel="stylesheet" href="{% static 'base.css' % }?{% now 'U'}">
- <link rel="stylesheet" href="{% static 'grocerymodify.css' %}?{% now 'U'}">
- <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
-</head>
-<body>
- <div class="container">
-  <main>
-   {% extends 'base.html' %}
-   
-   {% block content %}
-   <form method='POST'> {% csrf_token %}
-    {{ form.as_p }}
-    <input type='submit' value='Save' />
-   </form>
-   {% endblock %}
-  </main>
- </div>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Modify</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
+  <link rel="stylesheet" href="{% static 'grocerymodify.css' %}?{% now 'U'}">
+  <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block main %}
+    <!-- Main content (Grocery inventory & sidenav)   -->
+ <main>
+  <form method='POST'> {% csrf_token %}
+   {{ form.as_p }}
+   <input type='submit' value='Save' />
+  </form>
+ </main>
+{% endblock %}

@@ -10,6 +10,7 @@ body {
   background-color: rgb(113, 139, 166);
 }
 
+
 /* (BASE) CSS for header */
 header {
   display: inline-block;
@@ -81,7 +82,10 @@ nav .grocerylist {
 }
 
 
-
+/* (BASE) CSS for main body */
+main {
+  display: inline-block;
+}
 
 
 /* (BASE) Sidebar */
@@ -192,7 +196,7 @@ label #cancel {
 }
 
 
-/* (BASE) Footer */
+/* (BASE) Footer [Outside of grid container]*/
 footer {
   background-color: rgb(42, 76, 112);
   position: absolute;
@@ -257,14 +261,12 @@ nav {
   grid-row: 2;
 }
 
-nav .inventory>a {
-  text-decoration: underline;
-}
 
-nav .inventory>a:hover {
-  color: rgb(42, 76, 112);
+/* (BASE) main layout */
+main {
+  grid-column: 1 / 6;
+  grid-row: 3;
 }
-
 
 /* (BASE) Media queries */
 @media screen and (max-width: 720px) {
