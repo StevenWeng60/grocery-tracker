@@ -1,0 +1,271 @@
+/*
+Media queries -
+desktop: 1200px;
+laptop: 1024px;
+tablet: 768px;
+phone: 480px;
+*/
+/* (BASE) General CSS for the body */
+body {
+  background-color: rgb(113, 139, 166);
+}
+
+/* (BASE) CSS for header */
+header {
+  display: inline-block;
+  height: 70px;
+  /*
+  border:10px solid black;
+  */
+}
+
+header>h1 {
+  color: rgb(211, 221, 231);
+  font-size: 2.5em;
+  padding-left: 10px;
+}
+
+/* (BASE) CSS for navbar */
+nav {
+  height: 50px;
+  /*
+  border:10px solid red;
+  */
+  color: rgb(42, 76, 112);
+  background-color: rgb(163, 182, 202);
+  border: 5px solid rgb(42, 76, 112);
+  border-radius: 30px;
+  padding: 0px 15px 10px 15px;
+  font-size: clamp(0.5rem, 0.5rem + .9vw, 1rem);
+}
+
+nav a {
+  color: rgb(42, 76, 112);
+}
+
+nav a:link {
+  text-decoration: none;
+  color: rgb(42, 76, 112);
+}
+
+nav a:hover {
+  color: white;
+  cursor: pointer;
+}
+
+nav .home {
+  display: inline-block;
+  margin-right: 5vw;
+  margin: 0px 5px 0px 0px auto;
+}
+
+
+nav .inventory {
+  display: inline-block;
+  margin-right: 5vw;
+  margin: 0px 5px 0px 0px auto;
+}
+
+
+nav .modifyinventory {
+  display: inline-block;
+  margin-right: 5vw;
+  margin: 0px 5px 0px 0px auto;
+}
+
+
+nav .grocerylist {
+  display: inline-block;
+  margin-right: 5vw;
+  margin: 0px 5px 0px 0px auto;
+}
+
+
+
+
+
+/* (BASE) Sidebar */
+.sidebar {
+  position: fixed;
+  right: -350px;
+  width: 250px;
+  height: 100%;
+  background: rgb(42, 76, 112);
+  user-select: none;
+  transition: all 1s ease;
+
+}
+
+.sidebar h1 {
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  background: rgba(90, 146, 206);
+}
+
+.sidebar ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-right: 40px;
+  box-sizing: borderbox;
+  border-top: 1 px solid rgba(255, 255, 255, .1);
+  transition: .5s;
+}
+
+.sidebar ul li {
+  margin-left: -30px;
+  padding-right: 40px;
+  list-style: none;
+  text-decoration: none !important;
+}
+
+.sidebar a:link {
+  text-decoration: none;
+}
+
+.sidebar ul li:hover a {
+  padding-left: 30px;
+}
+
+.sidebar ul a i {
+  margin-right: 16px;
+}
+
+#check {
+  display: none;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+label {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+  background: rgb(211, 221, 231);
+  border-radius: 3px;
+}
+
+label #btn {
+  right: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: black;
+  padding: 6px 12px;
+  transition: all 1s;
+}
+
+label #cancel {
+  z-index: 1111;
+  right: 15px;
+  top: 40px;
+  font-size: 30px;
+  color: #0a5276;
+  padding: 4px 9px;
+  opacity: 0;
+}
+
+#check:checked~.sidebar {
+  right: 0;
+}
+
+#check:checked~label #btn {
+  right: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#check:checked~label #cancel {
+  transition-delay: 1s, 5s;
+  opacity: 1;
+}
+
+
+/* (BASE) Footer */
+footer {
+  background-color: rgb(42, 76, 112);
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 15em;
+  padding: 0;
+  margin-top: 5em;
+  display: flex;
+}
+
+footer .github {
+  display: inline-block;
+  padding-left: 5px;
+  align-self: flex-end;
+}
+
+footer h1 {
+  color: white;
+  font-size: 2em;
+  align-self: flex-end;
+}
+
+footer #githublink {
+  color: white;
+  height: 80px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+footer #githubimg {
+  width: 40px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, .25);
+  text-align: center;
+  line-height: normal;
+}
+
+footer #githubimg:hover {
+  width: 40px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .60);
+  text-align: center;
+  line-height: normal;
+}
+
+
+/* (BASE) Content layout */
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* (BASE) Header layout*/
+header {
+  grid-column: 1 / 6;
+  grid-row: 1;
+}
+
+/* (BASE) Nav layout */
+nav {
+  grid-column: 1 / 6;
+  grid-row: 2;
+}
+
+nav .inventory>a {
+  text-decoration: underline;
+}
+
+nav .inventory>a:hover {
+  color: rgb(42, 76, 112);
+}
+
+
+/* (BASE) Media queries */
+@media screen and (max-width: 720px) {
+}
