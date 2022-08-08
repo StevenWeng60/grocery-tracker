@@ -10,7 +10,8 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
   -->
   {% load static %}
-  <link rel="stylesheet" href="{% static 'developmentstyle.css' %}?{% now "U"}">
+  <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
+  <link rel="stylesheet" href="{% static 'developmentstyle.css' %}?{% now 'U'}">
   <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 </head>
 
@@ -69,12 +70,15 @@
         <li><a href="#"><i class="fa-solid fa-id-card"></i>Contact</a></li>
       </ul>
     </div>
-    
-    <!-- Footer -->
-    <footer>
-    </footer>
 
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="github">
+      <h1>Github: <a href="https://github.com/StevenWeng60" id="githublink" target="_blank"><i class="fa-brands fa-github" id="githubimg"></i></a></h1>
+    </div>
+  </footer>
 
     <!-- Bootstrap Javascript 
 
