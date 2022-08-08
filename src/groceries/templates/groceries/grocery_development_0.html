@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Basic HTML File</title>
-  <!--  Bootstrap css
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
-  -->
+{% block head %}
+  <title>Inventory</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
   <link rel="stylesheet" href="{% static 'groceryinventory.css' %}?{% now 'U'}">
   <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
-</head>
+{% endblock %}
 
-<body>
+{% block body %}
   <div class="container">
     <!-- Top header -->
     <header>
@@ -94,6 +87,4 @@
     <!-- Javascript -->
     <!--<script src="static/js/bootstrap.js"></script>
   -->
-</body>
-
-</html>
+{% endblock %}
