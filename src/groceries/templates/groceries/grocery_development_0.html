@@ -3,8 +3,8 @@
 {% block head %}
   <title>Inventory</title>
   {% load static %}
-  <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
-  <link rel="stylesheet" href="{% static 'groceryinventory.css' %}?{% now 'U'}">
+  <link rel="stylesheet" href="{% static 'base.css' %}?{% now "U"}">
+  <link rel="stylesheet" href="{% static 'groceryinventory.css' %}?{% now "U"}">
   <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 {% endblock %}
 
@@ -15,7 +15,10 @@
     <!-- Grocery inventory -->
     <div class="inventorycontainer">
       {% for instance in object_list %}
-      <div class="box">{{ instance.name }}<br> Quantity: {{ instance.quantity }}</div>
+      <div class="box">
+        <p>{{ instance.name }}</p>
+        <div class="qty">Qty: {{ instance.quantity }}</div>
+      </div>
       {% endfor %}
     </div>
   </main>

@@ -7,6 +7,126 @@ nav .modifyinventory>a:hover {
  color: rgb(42, 76, 112);
 }
 
+/* CSS for grocery inventory block */
+.inventorycontainer {
+ height: 70vh;
+ max-width: 150rem;
+ background-color: rgb(211, 221, 231);
+ border: 2px solid rgb(163, 182, 202);
+ box-shadow: 12px 12px 2px 1px rgba(42, 76, 112);
+ display: inline-flex;
+ flex-wrap: wrap;
+ gap: 20px;
+ padding: 10px;
+ overflow: scroll;
+}
+
+.box {
+ position: relative;
+ color: black;
+ text-align: center;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: bold;
+ font-size: 1em;
+ background-color: rgb(75, 107, 140, 0.3);
+ border-radius: 15px;
+ box-shadow: 0 0 15px 0 rgba(0, 0, 0, .25);
+ height: 6em;
+ width: 6em;
+ margin: .8em;
+ border: 3px solid rgb(42, 76, 122);
+ padding: 5px;
+}
+
+.box:hover {
+ background-color: rgb(75, 107, 140);
+ box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .25);
+ transform: scale(1.1);
+ cursor: pointer;
+}
+
+.box > .qty {
+ position: absolute;
+ bottom: 0;
+ text-align: center;
+ padding-left: 1.2em;
+ padding-bottom: 0.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sorting section */
+.modifysidebar {
+ background-color: white;
+ display: inline-block;
+ padding-top: 0px;
+ width: 20vw;
+ height: 70vh;
+ border: 10px solid rgb(163, 182, 202);
+ text-align: center;
+}
+
+.modifysidebar h1 {
+ font-size: clamp(1rem, 1rem + 1vw, 3rem);
+}
+
+/* CSS for form label */
+label[for=id_name] {
+ position: relative;
+}
+
+label[for=id_quantity] {
+ position: relative;
+}
+
+label[for=id_store] {
+ position: relative;
+}
+
+/* Content layout */
+.modifysidebar {
+ grid-column: 5;
+ grid-row: 3;
+}
+
 main {
- height: 60vh;
+ grid-column: 1 / 5;
+ grid-row: 3;
+}
+
+
+@media screen and (max-width: 720px) {
+ .modifysidebar {
+  grid-column: 1 / 6;
+  grid-row: 3;
+  margin: auto;
+  width: 80vw;
+ }
+
+ main {
+  grid-column: 1 / 6;
+  grid-row: 4;
+ }
+
+ footer {
+  grid-row: 5;
+ }
+}
+
+.form {
+ border: 5px solid black;
 }

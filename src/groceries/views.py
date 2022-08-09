@@ -21,8 +21,10 @@ def grocery_insert_view(request):
         form.save()
         form = GroceryForm()
 
+    queryset = Grocery.objects.all()
     context = {
-        'form': form
+        'form': form,
+        "object_list": queryset
     }
 
     return render(request, 'groceries/grocery_insert.html', context)

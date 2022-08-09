@@ -11,9 +11,24 @@
 {% block main %}
     <!-- Main content (Grocery inventory & sidenav)   -->
  <main>
-  <form method='POST'> {% csrf_token %}
-   {{ form.as_p }}
-   <input type='submit' value='Save' />
-  </form>
+    <!-- Grocery inventory -->
+    <div class="inventorycontainer">
+      {% for instance in object_list %}
+      <div class="box">
+        <p>{{ instance.name }}</p>
+        <div class="qty">Qty: {{ instance.quantity }}</div>
+      </div>
+      {% endfor %}
+    </div>
  </main>
+  <div class="modifysidebar">
+    <h1>SORTING SECTION</h1>
+    <div class="form">
+      <form method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Save' />
+      </form>
+    </div>
+  </div>
 {% endblock %}

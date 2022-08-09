@@ -22,6 +22,7 @@ nav .inventory>a:hover {
 }
 
 .box {
+ position:relative;
  color: black;
  text-align: center;
  font-family: Arial, Helvetica, sans-serif;
@@ -42,6 +43,14 @@ nav .inventory>a:hover {
  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .25);
  transform: scale(1.1);
  cursor: pointer;
+}
+
+.box > .qty {
+ position:absolute;
+ bottom:0;
+ text-align: center;
+ padding-left:1.2em;
+ padding-bottom: 0.5em;
 }
 
 /* Sorting section */
