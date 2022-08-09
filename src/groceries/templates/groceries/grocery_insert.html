@@ -10,7 +10,7 @@
 
 {% block main %}
     <!-- Main content (Grocery inventory & sidenav)   -->
- <main>
+  <main>
     <!-- Grocery inventory -->
     <div class="inventorycontainer">
       {% for instance in object_list %}
@@ -20,9 +20,14 @@
       </div>
       {% endfor %}
     </div>
- </main>
+  </main>
   <div class="modifysidebar">
-    <h1>SORTING SECTION</h1>
+    <h1>Modify</h1>
+    <div class="modifysidebarheader">
+        <div class="insert">Insert</div>
+        <div class="delete">Delete</div>
+        <div class="change">Change</div>
+    </div>
     <div class="form">
       <form method='POST'>
         {% csrf_token %}

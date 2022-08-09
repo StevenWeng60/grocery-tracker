@@ -64,14 +64,9 @@ nav .modifyinventory>a:hover {
 
 
 
-
-
-
-
-
 /* Sorting section */
 .modifysidebar {
- background-color: white;
+ background-color: #edf2f4;
  display: inline-block;
  padding-top: 0px;
  width: 20vw;
@@ -82,6 +77,48 @@ nav .modifyinventory>a:hover {
 
 .modifysidebar h1 {
  font-size: clamp(1rem, 1rem + 1vw, 3rem);
+}
+
+.modifysidebarheader {
+ font-size: 1.5em;
+ border-top: 3px solid #2b2d42;
+ border-bottom: 3px solid #2b2d42;
+ margin: 20px 0px 20px 0px;
+}
+
+.modifysidebarheader > .insert {
+ padding: 10px;
+ border-bottom: 1px solid #2b2d42;
+}
+
+.modifysidebarheader > .insert:hover {
+ background-color:#8d99ae;
+}
+
+.modifysidebarheader > .delete {
+ padding: 10px;
+ border-bottom: 1px solid #2b2d42;
+}
+
+.modifysidebarheader > .delete:hover {
+ background-color: #8d99ae;
+}
+
+.modifysidebarheader > .change {
+ padding: 10px;
+}
+
+.modifysidebarheader > .change:hover {
+ background-color: #8d99ae;
+}
+
+.modifysidebarheader a:link {
+ text-decoration: none;
+ color: black;
+}
+
+.modifysidebarheader a {
+ color: black;
 }
 
 /* CSS for form label */

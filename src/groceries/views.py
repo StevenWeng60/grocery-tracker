@@ -13,6 +13,20 @@ def grocery_inventory_view(request):
 
     return render(request, 'groceries/grocery_inventory.html', context)
 
+def grocery_modify_view(request):
+    form = GroceryForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        form = GroceryForm()
+
+    queryset = Grocery.objects.all()
+    context = {
+        'form': form,
+        "object_list": queryset
+    }
+
+    return render(request, 'groceries/grocery_modify.html', context)
 
 def grocery_insert_view(request):
     form = GroceryForm(request.POST or None)
@@ -33,7 +47,6 @@ def grocery_insert_view(request):
 def grocery_delete_view(request, id):
     obj = get_object_or_404(Grocery, id=id)
 
-    print("asdf")
 
     if request.method == "POST":
         print("POST")
@@ -44,6 +57,21 @@ def grocery_delete_view(request, id):
         "object": obj
     }
     return render(request, "groceries/grocery_delete.html", context)
+
+def grocery_change_view(request, id):
+    obj = get_object_or_404(Grocery, id=id)
+
+    print("asdf")
+
+    if request.method == "POST":
+        print("POST")
+        obj.delete()
+        return redirect('../')
+
+    context = {
+        "object": obj
+    }
+    return render(request, "groceries/grocery_change.html", context)
 
 
 def grocery_detail_view(request, id):
