@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
-from .forms import GroceryForm
+from .forms import GroceryForm, UpdateForm
 from .models import Grocery
 
 # Create your views here.
@@ -43,35 +43,60 @@ def grocery_insert_view(request):
 
     return render(request, 'groceries/grocery_insert.html', context)
 
-
-def grocery_delete_view(request, id):
+def grocery_delete_object_view(request, id):
     obj = get_object_or_404(Grocery, id=id)
-
 
     if request.method == "POST":
         print("POST")
         obj.delete()
         return redirect('../')
 
+    queryset = Grocery.objects.all()
+    
     context = {
-        "object": obj
+        "object": obj,
+        "object_list": queryset
     }
     return render(request, "groceries/grocery_delete.html", context)
 
-def grocery_change_view(request, id):
+def grocery_update_object_view(request, id):
     obj = get_object_or_404(Grocery, id=id)
 
-    print("asdf")
+    form = UpdateForm(request.POST or None)
 
     if request.method == "POST":
+        if form.is_valid():
+            grocery = Grocery.objects.get(name=obj.name)
+            grocery.quantity = form.cleaned_data.get("quantity")
+            grocery.save()
+            form = UpdateForm()
         print("POST")
-        obj.delete()
         return redirect('../')
 
+    queryset = Grocery.objects.all()
+    
     context = {
-        "object": obj
+        "form": form,
+        "object": obj,
+        "object_list": queryset
     }
-    return render(request, "groceries/grocery_change.html", context)
+    return render(request, "groceries/grocery_update.html", context)
+
+def grocery_delete_overview(request):
+    queryset = Grocery.objects.all()
+    context = {
+        "object_list": queryset
+    }
+
+    return render(request, 'groceries/grocery_delete_overview.html', context)
+
+def grocery_update_overview(request):
+    queryset = Grocery.objects.all()
+
+    context = {
+        "object_list": queryset
+    }
+    return render(request, "groceries/grocery_update_overview.html", context)
 
 
 def grocery_detail_view(request, id):

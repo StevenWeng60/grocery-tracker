@@ -10,3 +10,6 @@ class GroceryForm(forms.ModelForm):
             'quantity',
             'store',
         ]
+
+class UpdateForm(forms.Form):
+    quantity = forms.IntegerField()

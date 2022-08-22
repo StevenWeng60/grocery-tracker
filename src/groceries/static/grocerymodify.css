@@ -71,8 +71,9 @@ nav .modifyinventory>a:hover {
  padding-top: 0px;
  width: 20vw;
  height: 70vh;
- border: 10px solid rgb(163, 182, 202);
+ border: 11px solid rgb(163, 182, 202);
  text-align: center;
+ overflow:scroll;
 }
 
 .modifysidebar h1 {
@@ -121,7 +122,18 @@ nav .modifyinventory>a:hover {
  color: black;
 }
 
-/* CSS for form label */
+/* CSS for insert form label */
+.form {
+ height: 199px;
+ margin: 50px -1px 20px 0px;
+ padding-bottom: 10px;
+ border: 5px solid #2b2d42;
+}
+
+.form h2 {
+ font-size: clamp(1rem, 1rem + 1vw, 2rem);
+}
+
 label[for=id_name] {
  position: relative;
 }
@@ -162,8 +174,4 @@ main {
  footer {
   grid-row: 5;
  }
-}
-
-.form {
- border: 5px solid black;
 }

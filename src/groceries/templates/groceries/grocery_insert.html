@@ -24,15 +24,16 @@
   <div class="modifysidebar">
     <h1>Modify</h1>
     <div class="modifysidebarheader">
-        <div class="insert">Insert</div>
-        <div class="delete">Delete</div>
-        <div class="change">Change</div>
+      <div class="insert"><a href="http://127.0.0.1:8000/groceries/modify/insert">Insert</a></div>
+      <div class="delete"><a href="http://127.0.0.1:8000/groceries/modify/delete">Delete</a></div>
+      <div class="change"><a href="http://127.0.0.1:8000/groceries/modify/update">Update</a></div>
     </div>
     <div class="form">
+      <h2 style="margin-top:10px;margin-bottom:10px;">Insert</h2>
       <form method='POST'>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type='submit' value='Save' />
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type='submit' value='Save' />
       </form>
     </div>
   </div>

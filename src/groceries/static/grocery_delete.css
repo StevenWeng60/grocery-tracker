@@ -1,0 +1,15 @@
+.form {
+ position:relative;
+}
+
+.form h1 {
+ font-size: clamp(1rem, 1rem + 1vw, 2rem);
+}
+
+.form .inputbuttons {
+ width:100%;
+ display:flex;
+ justify-content: center;
+ position:absolute;
+ bottom: 10px;
+}

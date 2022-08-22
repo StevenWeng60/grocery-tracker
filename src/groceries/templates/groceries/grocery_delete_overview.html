@@ -14,10 +14,10 @@
  <!-- Grocery inventory -->
  <div class="inventorycontainer">
   {% for instance in object_list %}
-  <div class="box">
-   <p>{{ instance.name }}</p>
-   <div class="qty">Qty: {{ instance.quantity }}</div>
-  </div>
+   <div class="box" onclick="location.href='http://127.0.0.1:8000/groceries/modify/delete/{{ instance.id }}'">
+     <p>{{ instance.name }}</p>
+     <div class="qty">Qty: {{ instance.quantity }}</div>
+   </div>
   {% endfor %}
  </div>
 </main>
@@ -27,6 +27,9 @@
   <div class="insert"><a href="http://127.0.0.1:8000/groceries/modify/insert">Insert</a></div>
   <div class="delete"><a href="http://127.0.0.1:8000/groceries/modify/delete">Delete</a></div>
   <div class="change"><a href="http://127.0.0.1:8000/groceries/modify/update">Update</a></div>
+ </div>
+ <div class="form">
+  <h2>Delete (select item to delete)</h2>
  </div>
 </div>
 {% endblock %}
