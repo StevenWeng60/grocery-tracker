@@ -11,7 +11,8 @@ from .views import (
     grocery_development_view0,
     grocery_modify_view,
     grocery_update_overview,
-    grocery_update_object_view
+    grocery_update_object_view,
+    grocery_list_overview
 )
 
 urlpatterns = [
@@ -25,5 +26,6 @@ urlpatterns = [
     path('modify/update/<int:id>/', grocery_update_object_view, name="grocery-update-object-view"),
     path('<int:id>/', grocery_detail_view, name="grocery-detail"),
     path('development', grocery_development_view, name="grocery-development"),
-    path('development0', grocery_development_view0, name="grocery-development0")
+    path('development0', grocery_development_view0, name="grocery-development0"),
+    path('grocery_list/', grocery_list_overview, name="grocery-list-overview")
 ]

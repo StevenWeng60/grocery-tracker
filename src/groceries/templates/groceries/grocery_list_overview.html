@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+ <title>Grocery List</title>
+ {% load static %}
+ <link rel="stylesheet" href="{% static 'base.css' %}?{% now "U"}">
+ <link rel="stylesheet" href="{% static 'grocerylist.css' %}?{% now "U"}">
+ <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block main %}
+
+<!-- Main content (Grocery inventory & sidenav)-->
+<main>
+ <!-- Grocery inventory -->
+ <div class="inventorycontainer">
+
+  <!-- Grocery List Requirements-->
+  <div class="grocerylistrequirement">
+   <h1>Grocery list settings</h1>
+  </div>
+  <!-- Grocery List Generated-->
+  <div class="grocerylistgenerated">
+   <h1>Generated list</h1>
+  </div>
+ </div>
+</main>
+
+<!-- Sorting tab -->
+<div class="sorter">
+ <h1>SORTING SECTION</h1>
+</div>
+
+{% endblock %}

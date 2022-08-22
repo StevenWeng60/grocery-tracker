@@ -13,6 +13,12 @@ def grocery_inventory_view(request):
 
     return render(request, 'groceries/grocery_inventory.html', context)
 
+
+
+
+
+
+# LIST OF INVENTORY TAB VIEWS ----------------------------------------------------------------------
 def grocery_modify_view(request):
     form = GroceryForm(request.POST or None)
 
@@ -107,7 +113,19 @@ def grocery_detail_view(request, id):
     return render(request, "groceries/grocery_detail.html", context)
 
 
-# For testing and developing inventory view with bootstrap
+
+# LIST OF GROCERY LIST VIEWS --------------------------------------------------------------------------------------------
+
+def grocery_list_overview(request):
+    queryset = Grocery.objects.all()
+    context = {
+        "object_list": queryset
+    }
+
+    return render(request, 'groceries/grocery_list_overview.html', context)
+
+
+# For testing and developing inventory view with bootstrap  ----------------------------------------------------------
 def grocery_development_view(request):
     queryset = Grocery.objects.all()
     context = {
