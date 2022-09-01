@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
-from .forms import GroceryForm, UpdateForm
-from .models import Grocery
+from .forms import GroceryForm, GroceryListItemForm, UpdateForm
+from .models import Grocery, GroceryListItem
 
 # Create your views here.
 
@@ -117,20 +117,38 @@ def grocery_detail_view(request, id):
 # LIST OF GROCERY LIST VIEWS --------------------------------------------------------------------------------------------
 
 def grocery_list_overview(request):
+    form = GroceryListItemForm(request.POST or None)
+
+
+    if form.is_valid():
+        form.save()
+        form = GroceryListItemForm()
+
+
     queryset = Grocery.objects.all()
     context = {
+        "form": form,
         "object_list": queryset
     }
 
     return render(request, 'groceries/grocery_list_overview.html', context)
 
 def grocery_list_settings_view(request):
+    form = GroceryListItemForm(request.POST or None)
+
+
+    if form.is_valid():
+        form.save()
+        form = GroceryListItemForm()
+
+
     queryset = Grocery.objects.all()
     context = {
+        "form": form,
         "object_list": queryset
     }
 
-    return render(request, 'groceries/grocery_list_settings.html', context)
+    return render(request, 'groceries/grocery_list_overview.html', context)
 
 
 # For testing and developing inventory view with bootstrap  ----------------------------------------------------------

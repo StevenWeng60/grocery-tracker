@@ -19,6 +19,13 @@
    <h1>Grocery list</h1>
    <p>asdf</p>
    <p>123</p>
+   <div class="form">
+    <form method="POST">
+     {% csrf_token %}
+     {{ form.as_p }}
+     <input type="submit" value="save"/>
+    </form>
+   </div>
   </div>
  </div>
 </main>

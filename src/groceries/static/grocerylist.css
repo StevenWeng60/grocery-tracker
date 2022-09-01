@@ -32,6 +32,15 @@ nav .grocerylist>a:hover {
  margin: auto;
 }
 
+/* CSS for aligning labels for input boxes */
+label[for=id_name] {
+ position: relative;
+}
+
+label[for=id_quantity] {
+ position: relative;
+}
+
 /* CSS for grocery list h1 */
 .inventorycontainer h1 {
  border-bottom: 5px solid black;
