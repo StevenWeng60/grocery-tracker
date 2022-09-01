@@ -124,6 +124,14 @@ def grocery_list_overview(request):
 
     return render(request, 'groceries/grocery_list_overview.html', context)
 
+def grocery_list_settings_view(request):
+    queryset = Grocery.objects.all()
+    context = {
+        "object_list": queryset
+    }
+
+    return render(request, 'groceries/grocery_list_settings.html', context)
+
 
 # For testing and developing inventory view with bootstrap  ----------------------------------------------------------
 def grocery_development_view(request):

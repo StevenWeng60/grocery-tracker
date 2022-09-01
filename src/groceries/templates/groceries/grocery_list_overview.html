@@ -3,8 +3,8 @@
 {% block head %}
  <title>Grocery List</title>
  {% load static %}
- <link rel="stylesheet" href="{% static 'base.css' %}?{% now "U"}">
- <link rel="stylesheet" href="{% static 'grocerylist.css' %}?{% now "U"}">
+ <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
+ <link rel="stylesheet" href="{% static 'grocerylist.css' %}?{% now 'U'}">
  <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 {% endblock %}
 
@@ -14,21 +14,22 @@
 <main>
  <!-- Grocery inventory -->
  <div class="inventorycontainer">
-
-  <!-- Grocery List Requirements-->
-  <div class="grocerylistrequirement">
-   <h1>Grocery list settings</h1>
-  </div>
-  <!-- Grocery List Generated-->
+  <!-- Grocery List -->
   <div class="grocerylistgenerated">
-   <h1>Generated list</h1>
+   <h1>Grocery list</h1>
+   <p>asdf</p>
+   <p>123</p>
   </div>
  </div>
 </main>
 
 <!-- Sorting tab -->
-<div class="sorter">
- <h1>SORTING SECTION</h1>
+<div class="optionsidebar">
+ <h1>Options</h1>
+ <div class="optionsidebarheader">
+  <div class="grocerylist"><a href="http://127.0.0.1:8000/groceries/grocery_list">Grocery List</a></div>
+  <div class="grocerylistsettings"><a href="http://127.0.0.1:8000/groceries/grocery_list/settings">Settings</a></div>
+ </div>
 </div>
 
 {% endblock %}

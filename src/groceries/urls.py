@@ -12,7 +12,8 @@ from .views import (
     grocery_modify_view,
     grocery_update_overview,
     grocery_update_object_view,
-    grocery_list_overview
+    grocery_list_overview,
+    grocery_list_settings_view,
 )
 
 urlpatterns = [
@@ -27,5 +28,6 @@ urlpatterns = [
     path('<int:id>/', grocery_detail_view, name="grocery-detail"),
     path('development', grocery_development_view, name="grocery-development"),
     path('development0', grocery_development_view0, name="grocery-development0"),
-    path('grocery_list/', grocery_list_overview, name="grocery-list-overview")
+    path('grocery_list/', grocery_list_overview, name="grocery-list-overview"),
+    path('grocery_list/settings', grocery_list_settings_view, name="grocery-list-settings-view"),
 ]
