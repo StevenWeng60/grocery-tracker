@@ -1,0 +1,118 @@
+/* CSS for inventory option in Nav */
+nav .grocerylist>a {
+ text-decoration: underline;
+}
+
+nav .grocerylist>a:hover {
+ color: rgb(42, 76, 112);
+}
+
+/* CSS for grocery list block */
+.inventorycontainer {
+ height: 70vh;
+ max-width: 150rem;
+ width:100%;
+ background-color: rgb(211, 221, 231);
+ border: 2px solid rgb(163, 182, 202);
+ text-align: center;
+ box-shadow: 12px 12px 2px 1px rgba(42, 76, 112);
+ gap: 20px;
+ display:inline-block;
+ padding: 10px 2px 10px 2px;
+ overflow: scroll;
+}
+
+
+/* CSS for grocery list generated */
+.grocerylistgenerated {
+ width: 90%;
+ height: 70vh;
+ display: inline-block;
+ border: 5px solid black;
+ margin: auto;
+}
+
+/* CSS for aligning labels for input boxes */
+label[for=id_name] {
+ position: relative;
+}
+
+label[for=id_quantity] {
+ position: relative;
+}
+
+/* CSS for grocery list h1 */
+.inventorycontainer h1 {
+ border-bottom: 5px solid black;
+}
+
+/* Options section */
+.optionsidebar {
+ background-color: #edf2f4;
+ display: inline-block;
+ padding-top: 0px;
+ width: 20vw;
+ height: 70vh;
+ border: 11px solid rgb(163, 182, 202);
+ text-align: center;
+ overflow: scroll;
+}
+
+.optionsidebar h1 {
+ font-size: clamp(1rem, 1rem + 1vw, 3rem);
+}
+
+.optionsidebarheader {
+ font-size: 1.5em;
+ border-top: 3px solid #2b2d42;
+ border-bottom: 3px solid #2b2d42;
+ margin: 20px 0px 20px 0px;
+}
+
+.optionsidebarheader > .grocerylist {
+ padding: 10px;
+ border-bottom: 1px solid #2b2d42;
+}
+
+.optionsidebarheader > .grocerylist:hover {
+ background-color: #8d99ae;
+}
+
+.optionsidebarheader > .grocerylistsettings {
+ padding: 10px;
+ border-bottom: 1px solid #2b2d42;
+}
+
+.optionsidebarheader > .grocerylistsettings:hover {
+ background-color: #8d99ae;
+}
+
+/* Content layout */
+.optionsidebar{
+ grid-column: 5;
+ grid-row: 3;
+}
+
+main {
+ grid-column: 1 / 5;
+ grid-row: 3;
+}
+
+
+@media screen and (max-width: 720px) {
+ .optionsidebar {
+  grid-column: 1 / 6;
+  grid-row: 3;
+  margin: auto;
+  width: 80vw;
+ }
+
+ main {
+  grid-column: 1 / 6;
+  grid-row: 4;
+ }
+
+ footer {
+  grid-row: 5;
+ }
+}

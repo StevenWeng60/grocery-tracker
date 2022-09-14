@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Grocery List</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}?n={{random_number}}">
+<link rel="stylesheet" href="{% static 'grocerylistsettings.css' %}?n={{random_number}}">
+<!--
+<link rel="stylesheet" href="{% static 'base.css' %}?{% now "U"}">
+<link rel="stylesheet" href="{% static 'grocerylistsettings.css' %}?{% now "U"}">
+-->
+<script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block main %}
+
+<!-- Main content (Grocery inventory & sidenav)-->
+<main>
+  <!-- Grocery inventory -->
+  <div class="inventorycontainer">
+    <!-- Grocery List -->
+    <div class="grocerylistgenerated">
+      <h1>Grocery list</h1>
+      {% for instance in grocery_item_list %}
+      <p class="grocerylistitem">{{ instance.name }} ({{ instance.quantity}}) <a href="{% url 'grocery-list-item-delete-view' instance.id %}" class="deletebutton">delete</a></p>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+<!-- Sorting tab -->
+<div class="optionsidebar">
+  <h1>Options</h1>
+  <div class="optionsidebarheader">
+    <div class="grocerylist"><a href="http://127.0.0.1:8000/groceries/grocery_list">Grocery List</a></div>
+    <div class="grocerylistsettings"><a href="http://127.0.0.1:8000/groceries/grocery_list/settings">Settings</a></div>
+  </div>
+  <div class="form">
+    <h1>Insert Entry</h1>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="save" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}

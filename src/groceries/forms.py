@@ -1,5 +1,6 @@
 from django import forms
 from .models import Grocery
+from .models import GroceryListItem
 
 
 class GroceryForm(forms.ModelForm):
@@ -10,3 +11,16 @@ class GroceryForm(forms.ModelForm):
             'quantity',
             'store',
         ]
+
+
+class GroceryListItemForm(forms.ModelForm):
+    class Meta:
+        model = GroceryListItem
+        fields = [
+            'name',
+            'quantity',
+        ]
+
+
+class UpdateForm(forms.Form):
+    quantity = forms.IntegerField()

@@ -1,16 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Groceries inc</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--  Bootstrap css
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    -->
+    {% block head %}
+        replace this
+    {% endblock %}
 </head>
 
 <body>
+    <div class="container">
+        <!-- Top header -->
+        <header>
+            <h1>Grocery Tracker</h1>
+        </header>
 
-    {% block content %}
-         replace this
-    {% endblock %}
+        <!-- Top navbar-->
+        <nav>
+            <div class="home">
+                <a href="http://127.0.0.1:8000/">
+                    <h1>Home</h1>
+                </a>
+            </div>
+            <div class="inventory">
+                <a href="http://127.0.0.1:8000/groceries/development0">
+                    <h1>Inventory</h1>
+                </a>
+            </div>
+            <div class="modifyinventory">
+                <a href="http://127.0.0.1:8000/groceries/modify">
+                    <h1>Modify</h1>
+                </a>
+            </div>
+            <div class="grocerylist">
+                <a href="http://127.0.0.1:8000/groceries/grocery_list">
+                    <h1>Grocery List</h1>
+                </a>
+            </div>
 
+        </nav>
+        
+        {% block main %}
+            replace this
+        {% endblock %}
+
+        <!-- Sidebar -->
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <div class="sidebar">
+            <h1>Sidebar</h1>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-hammer"></i>Insert</a></li>
+                <li><a href="#"><i class="fa-solid fa-trash"></i>Delete</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li>
+                <li><a href="#"><i class="fa-solid fa-id-card"></i>Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="github">
+            <h1>Github: <a href="https://github.com/StevenWeng60" id="githublink" target="_blank"><i
+                        class="fa-brands fa-github" id="githubimg"></i></a></h1>
+        </div>
+    </footer>
 </body>
 
 </html>

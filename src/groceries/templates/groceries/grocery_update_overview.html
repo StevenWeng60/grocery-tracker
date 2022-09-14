@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Modify</title>
-{% load static %}
-<link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
-<link rel="stylesheet" href="{% static 'grocerymodify.css' %}?{% now 'U'}">
-<link rel="stylesheet" href="{% static 'grocery_delete.css' %}?{% now 'U'}">
-<script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
+ <title>Modify</title>
+ {% load static %}
+ <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
+ <link rel="stylesheet" href="{% static 'grocerymodify.css' %}?{% now 'U'}">
+ <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block main %}
@@ -15,7 +14,7 @@
  <!-- Grocery inventory -->
  <div class="inventorycontainer">
   {% for instance in object_list %}
-  <div class="box" onclick="location.href='http://127.0.0.1:8000/groceries/modify/delete/{{ instance.id }}'">
+  <div class="box" onclick="location.href='http://127.0.0.1:8000/groceries/modify/update/{{ instance.id }}'">
    <p>{{ instance.name }}</p>
    <div class="qty">Qty: {{ instance.quantity }}</div>
   </div>
@@ -30,13 +29,7 @@
   <div class="change"><a href="http://127.0.0.1:8000/groceries/modify/update">Update</a></div>
  </div>
  <div class="form">
-  <form method='POST'>{% csrf_token %}
-   <h1>Do you want to delete the item "{{object.name}}"</h1>
-   <div class="inputbuttons">
-    <input type="submit" value='Yes' style="margin-right:30px;"/>
-    <a href='../'>Cancel</a>
-   </div>
-  </form>
+  <h2>Update (select item to update)</h2>
  </div>
 </div>
 {% endblock %}
