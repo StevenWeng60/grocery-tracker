@@ -12,6 +12,7 @@ class GroceryForm(forms.ModelForm):
             'store',
         ]
 
+
 class GroceryListItemForm(forms.ModelForm):
     class Meta:
         model = GroceryListItem
@@ -19,6 +20,7 @@ class GroceryListItemForm(forms.ModelForm):
             'name',
             'quantity',
         ]
+
 
 class UpdateForm(forms.Form):
     quantity = forms.IntegerField()

@@ -3,8 +3,12 @@
 {% block head %}
 <title>Grocery List</title>
 {% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}?n={{random_number}}">
+<link rel="stylesheet" href="{% static 'grocerylistsettings.css' %}?n={{random_number}}">
+<!--
 <link rel="stylesheet" href="{% static 'base.css' %}?{% now "U"}">
 <link rel="stylesheet" href="{% static 'grocerylistsettings.css' %}?{% now "U"}">
+-->
 <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 {% endblock %}
 
@@ -18,7 +22,7 @@
     <div class="grocerylistgenerated">
       <h1>Grocery list</h1>
       {% for instance in grocery_item_list %}
-      <p>{{ instance.name }} ({{ instance.quantity}}) <a href="{% url 'grocery-list-item-delete-view' instance.id %}" class="deletebutton">delete</a></p>
+      <p class="grocerylistitem">{{ instance.name }} ({{ instance.quantity}}) <a href="{% url 'grocery-list-item-delete-view' instance.id %}" class="deletebutton">delete</a></p>
       {% endfor %}
     </div>
   </div>

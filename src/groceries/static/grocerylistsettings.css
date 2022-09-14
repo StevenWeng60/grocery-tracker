@@ -33,16 +33,35 @@ nav .grocerylist>a:hover {
 }
 
 /* CSS for grocery list items*/
-.grocerylistgenerated p:hover {
- font-size: 1.1em;
+.grocerylistitem {
+ position:relative;
+ text-align: left;
+ width: 28%;
+ padding: 10px;
+ margin: 10px;
+ display: inline-block;
+ background-color: white;
+ border: 3px solid black;
+ border-radius: 2px;
+ font-size: 1.5em;
+}
+
+.grocerylistitem:hover {
  background-color:antiquewhite;
 } 
 
 /* CSS for grocery list item delete buttons */
 .deletebutton {
+ margin:auto;
+ position:absolute;
+ top:6px;
+ right: 30px;
  display:inline-block;
- margin-left: 30px;
  background-color: red;
+ border: 2px solid black;
+ text-decoration: none;
+ color:black;
+ padding: 2px;
 }
 
 /* CSS for aligning labels for input boxes */
@@ -102,7 +121,7 @@ label[for=id_quantity] {
 
 /* FORM CSS */
 .form {
- height: 199px;
+ height: 300px;
  margin: 50px -1px 20px 0px;
  padding-bottom: 10px;
  border: 5px solid #2b2d42;
