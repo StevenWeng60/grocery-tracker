@@ -22,31 +22,27 @@ nav .grocerylist>a:hover {
  overflow: scroll;
 }
 
-/* CSS for grocery list requirement */
-.grocerylistrequirement {
- width: 48%;
- height: 70vh;
- display: inline-block;
- border: 5px solid black;
- margin: auto;
-}
-
-.additem {
- border: 2px solid black;
-}
-
-.additem p {
- display: inline-block;
-}
 
 /* CSS for grocery list generated */
 .grocerylistgenerated {
- position: relative;
- width: 48%;
+ width: 90%;
  height: 70vh;
  display: inline-block;
  border: 5px solid black;
  margin: auto;
+}
+
+/* CSS for grocery list items*/
+.grocerylistgenerated p:hover {
+ font-size: 1.1em;
+ background-color:antiquewhite;
+} 
+
+/* CSS for grocery list item delete buttons */
+.deletebutton {
+ display:inline-block;
+ margin-left: 30px;
+ background-color: red;
 }
 
 /* CSS for aligning labels for input boxes */
@@ -60,26 +56,60 @@ label[for=id_quantity] {
 
 /* CSS for grocery list h1 */
 .inventorycontainer h1 {
- border-bottom: 5px solid white;
+ border-bottom: 5px solid black;
 }
 
-/* Sorting section */
-.sorter {
- background-color: white;
+/* Options section */
+.optionsidebar {
+ background-color: #edf2f4;
  display: inline-block;
  padding-top: 0px;
  width: 20vw;
  height: 70vh;
- border: 10px solid rgb(163, 182, 202);
+ border: 11px solid rgb(163, 182, 202);
  text-align: center;
+ overflow: scroll;
 }
 
-.sorter h1 {
+.optionsidebar h1 {
  font-size: clamp(1rem, 1rem + 1vw, 3rem);
 }
 
+.optionsidebarheader {
+ font-size: 1.5em;
+ border-top: 3px solid #2b2d42;
+ border-bottom: 3px solid #2b2d42;
+ margin: 20px 0px 20px 0px;
+}
+
+.optionsidebarheader>.grocerylist {
+ padding: 10px;
+ border-bottom: 1px solid #2b2d42;
+}
+
+.optionsidebarheader>.grocerylist:hover {
+ background-color: #8d99ae;
+}
+
+.optionsidebarheader>.grocerylistsettings {
+ padding: 10px;
+ border-bottom: 1px solid #2b2d42;
+}
+
+.optionsidebarheader>.grocerylistsettings:hover {
+ background-color: #8d99ae;
+}
+
+/* FORM CSS */
+.form {
+ height: 199px;
+ margin: 50px -1px 20px 0px;
+ padding-bottom: 10px;
+ border: 5px solid #2b2d42;
+}
+
 /* Content layout */
-.sorter {
+.optionsidebar {
  grid-column: 5;
  grid-row: 3;
 }
@@ -91,7 +121,7 @@ main {
 
 
 @media screen and (max-width: 720px) {
- .sorter {
+ .optionsidebar {
   grid-column: 1 / 6;
   grid-row: 3;
   margin: auto;
