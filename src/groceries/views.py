@@ -151,32 +151,6 @@ def grocery_list_settings_view(request):
 
     return render(request, 'groceries/grocery_list_settings.html', context)
 
-# Generated view of grocery list, subtracts the quantity of an item with the quantity the client wants to keep up with their inventory
-
-
-def grocery_list_generated_view(request):
-    groceryitemset = GroceryListItem.objects.all()
-
-    finalgrocerylistset = []
-    for listitem in groceryitemset:
-        itemininventory = Grocery.objects.filter(name=listitem.name)
-        if (len(itemininventory) == 0):
-            finalgrocerylistset.append(listitem)
-        else:
-            ininventory = Grocery.objects.get(name=listitem.name)
-            missingquantity = listitem.quantity - ininventory.quantity
-            # If missing quantity is greater than 0 that means there are not enough items in the inventory to satisfy the requirements on the list. In that case, add the difference between them as a new grocerylist item and put it on the list.
-            if (missingquantity > 0):
-                itemtobeadded = listitem
-                itemtobeadded.quantity = missingquantity
-                finalgrocerylistset.append(itemtobeadded)
-
-    context = {
-        "grocery_item_list": finalgrocerylistset
-    }
-
-    return render(request, 'groceries/grocery_list_generated.html', context)
-
 # DELETE AN EVENT
 
 
