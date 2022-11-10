@@ -14,7 +14,8 @@ from .views import (
     grocery_update_object_view,
     grocery_list_overview,
     grocery_list_settings_view,
-    grocery_list_item_delete_view
+    grocery_list_item_delete_view,
+    grocery_list_generated_view
 )
 
 urlpatterns = [
@@ -38,4 +39,6 @@ urlpatterns = [
          name="grocery-list-settings-view"),
     path('grocery_list/settings/delete/<grocerylist_item_id>',
          grocery_list_item_delete_view, name="grocery-list-item-delete-view"),
+    path('grocery_list/generated',
+         grocery_list_generated_view, name="grocery-list-generated-view"),
 ]

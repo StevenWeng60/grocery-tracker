@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block head %}
- <title>Grocery List</title>
- {% load static %}
- <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
- <link rel="stylesheet" href="{% static 'grocerylist.css' %}?{% now 'U'}">
- <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
+<title>Grocery List</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
+<link rel="stylesheet" href="{% static 'grocerylist.css' %}?{% now 'U'}">
+<script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block main %}
@@ -33,7 +33,7 @@
  </div>
  <div class="generatelistoptions">
   <a href="{% url 'grocery-list-overview' %}"></a>
-  <button class="generatebutton" value="submit"><a href="http://127.0.0.1:8000/groceries/grocery_list/generated"> Generate List </a></button>
+  <button class="generatebutton" value="submit"> Generate List </a></button>
   <button class="newbutton" value="submit">New List</button>
   <button class="savelist" value="submit">Save List</button>
  </div>

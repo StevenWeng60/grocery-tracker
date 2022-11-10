@@ -87,6 +87,13 @@ label[for=id_quantity] {
  background-color: #8d99ae;
 }
 
+/* GroceryList option specific options (options within an option) */
+.generatelistoptions {
+ border: 5px solid black;
+ margin-top: 25px;
+ font-size:50px;
+}
+
 /* Content layout */
 .optionsidebar{
  grid-column: 5;
