@@ -9,6 +9,12 @@ class Grocery(models.Model):
     quantity = models.SmallIntegerField()
     store = models.CharField(max_length=30)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['name'], name='unique_inventory_item')
+        ]
+
     def get_absolute_url(self):
         #print(reverse_lazy("grocery-detail", kwargs={"id": self.id}))
         return reverse_lazy("grocery-detail", kwargs={"id": self.id})
