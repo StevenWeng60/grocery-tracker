@@ -22,7 +22,9 @@
     <div class="grocerylistgenerated">
       <h1>Grocery list</h1>
       {% for instance in grocery_item_list %}
+      {% if instance.username == user.get_username %}
       <p class="grocerylistitem">{{ instance.name }} ({{ instance.quantity}}) <a href="{% url 'grocery-list-item-delete-view' instance.id %}" class="deletebutton">delete</a></p>
+      {% endif %}
       {% endfor %}
     </div>
   </div>

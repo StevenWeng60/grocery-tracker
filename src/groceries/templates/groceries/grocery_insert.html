@@ -14,10 +14,12 @@
     <!-- Grocery inventory -->
     <div class="inventorycontainer">
       {% for instance in object_list %}
+      {% if instance.username == user.get_username %}
       <div class="box">
         <p>{{ instance.name }}</p>
         <div class="qty">Qty: {{ instance.quantity }}</div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </main>

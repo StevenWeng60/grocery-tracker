@@ -4,7 +4,7 @@
 <title>Modify</title>
 {% load static %}
 <link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
-<link rel="stylesheet" href="{% static 'grocerymodify.css' %}?{% now 'U'}">
+<link rel="stylesheet" href="{% static 'grocerymodify.css' %}?{% now "U"}">
 <script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
 {% endblock %}
 
@@ -14,10 +14,12 @@
  <!-- Grocery inventory -->
  <div class="inventorycontainer">
   {% for instance in object_list %}
+  {% if instance.username == user.get_username %}
   <div class="box">
    <p>{{ instance.name }}</p>
    <div class="qty">Qty: {{ instance.quantity }}</div>
   </div>
+  {% endif %}
   {% endfor %}
  </div>
 </main>

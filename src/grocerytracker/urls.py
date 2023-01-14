@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from home import views
+from grocerytracker import views
+
+app_name = "main"
 
 urlpatterns = [
-    path('', views.home_view, name='home'),
+    path('', views.home_view, name='home_view'),
+    path('success/', views.finished_registering, name='finished'),
     path('admin/', admin.site.urls),
     path('groceries/', include('groceries.urls')),
+    path("register", views.register_request, name="register"),
+    path("login", views.login_request, name="login"),
+    path("logout", views.logout_request, name="logout"),
 ]
 
 '''

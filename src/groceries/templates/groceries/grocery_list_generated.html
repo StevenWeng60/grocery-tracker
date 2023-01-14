@@ -18,7 +18,9 @@
   <div class="grocerylistgenerated">
    <h1>Grocery list</h1>
    {% for instance in grocery_item_list %}
+   {% if instance.username == user.get_username %}
    <p>{{ instance.name }} ({{ instance.quantity }}) </p>
+   {% endif %}
    {% endfor %}
   </div>
  </div>
@@ -35,7 +37,7 @@
   <a href="{% url 'grocery-list-overview' %}"></a>
   <button class="generatebutton" value="submit"> Generate List </a></button>
   <button class="newbutton" value="submit">New List</button>
-  <button class="savelist" value="submit">Save List</button>
+  <button class="savelist" value="submit"><a href="http://127.0.0.1:8000/groceries/grocery_list/generated/pdf">Save List</a></button>
  </div>
 </div>
 

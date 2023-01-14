@@ -1,8 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from .forms import GroceryForm, GroceryListItemForm, UpdateForm
 from .models import Grocery, GroceryListItem
+from django.contrib.auth.models import User
 
-# Create your views here.
+# reportlab imports
+from django.http import FileResponse
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
 
 
 def grocery_inventory_view(request):
@@ -35,7 +41,7 @@ def grocery_insert_view(request):
     form = GroceryForm(request.POST or None)
 
     if form.is_valid():
-        form.save()
+        form.save(request.user.get_username())
         form = GroceryForm()
 
     queryset = Grocery.objects.all()
@@ -73,7 +79,7 @@ def grocery_update_object_view(request, id):
         if form.is_valid():
             grocery = Grocery.objects.get(name=obj.name)
             grocery.quantity = form.cleaned_data.get("quantity")
-            grocery.save()
+            grocery.save(User.get_username())
             form = UpdateForm()
         print("POST")
         return redirect('../')
@@ -120,7 +126,7 @@ def grocery_list_overview(request):
     form = GroceryListItemForm(request.POST or None)
 
     if form.is_valid():
-        form.save()
+        form.save(request.user.get_username())
         form = GroceryListItemForm()
 
     queryset = Grocery.objects.all()
@@ -138,7 +144,7 @@ def grocery_list_settings_view(request):
     form = GroceryListItemForm(request.POST or None)
 
     if form.is_valid():
-        form.save()
+        form.save(request.user.get_username())
         form = GroceryListItemForm()
 
     queryset = Grocery.objects.all()
@@ -155,15 +161,18 @@ def grocery_list_settings_view(request):
 
 
 def grocery_list_generated_view(request):
-    groceryitemset = GroceryListItem.objects.all()
+    groceryitemset = GroceryListItem.objects.filter(
+        username=request.user.get_username())
 
     finalgrocerylistset = []
     for listitem in groceryitemset:
-        itemininventory = Grocery.objects.filter(name=listitem.name)
+        itemininventory = Grocery.objects.filter(
+            name=listitem.name, username=request.user.get_username())
         if (len(itemininventory) == 0):
             finalgrocerylistset.append(listitem)
         else:
-            ininventory = Grocery.objects.get(name=listitem.name)
+            ininventory = Grocery.objects.get(
+                name=listitem.name, username=request.user.get_username())
             missingquantity = listitem.quantity - ininventory.quantity
             # If missing quantity is greater than 0 that means there are not enough items in the inventory to satisfy the requirements on the list. In that case, add the difference between them as a new grocerylist item and put it on the list.
             if (missingquantity > 0):
@@ -184,6 +193,47 @@ def grocery_list_item_delete_view(request, grocerylist_item_id):
     grocery_list_item = GroceryListItem.objects.get(pk=grocerylist_item_id)
     grocery_list_item.delete()
     return redirect('grocery-list-settings-view')
+
+
+# Generate a grocery list in the form of a pdf file
+def generated_pdf_view(request):
+    # Create Bytestream buffer
+    buf = io.BytesIO()
+    # Create a canvas
+    c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+    # Create a text object
+    textob = c.beginText()
+    textob.setTextOrigin(inch, inch)
+    textob.setFont("Helvetica", 14)
+
+    groceryitemset = GroceryListItem.objects.filter(
+        username=request.user.get_username())
+
+    finalgrocerylistset = []
+    for listitem in groceryitemset:
+        itemininventory = Grocery.objects.filter(
+            name=listitem.name, username=request.user.get_username())
+        if (len(itemininventory) == 0):
+            finalgrocerylistset.append(listitem)
+        else:
+            ininventory = Grocery.objects.get(
+                name=listitem.name, username=request.user.get_username())
+            missingquantity = listitem.quantity - ininventory.quantity
+            # If missing quantity is greater than 0 that means there are not enough items in the inventory to satisfy the requirements on the list. In that case, add the difference between them as a new grocerylist item and put it on the list.
+            if (missingquantity > 0):
+                itemtobeadded = listitem
+                itemtobeadded.quantity = missingquantity
+                finalgrocerylistset.append(itemtobeadded)
+
+    for line in finalgrocerylistset:
+        textob.textLine(line.name + ' (' + str(line.quantity) + ')')
+
+    c.drawText(textob)
+    c.showPage()
+    c.save()
+    buf.seek(0)
+
+    return FileResponse(buf, as_attachment=True, filename='grocerylist.pdf')
 
 
 # For testing and developing inventory view with bootstrap  ----------------------------------------------------------

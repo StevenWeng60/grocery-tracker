@@ -1,0 +1,13 @@
+.body {
+ display:block;
+ text-align: center;
+ border:5px solid;
+ margin:25px auto auto auto;
+ height: 70vh;
+ width: 75%;
+ padding: 10px;
+ color: red;
+ background-color: white;
+ grid-column: 1 / 6;
+ grid-row: 3;
+}

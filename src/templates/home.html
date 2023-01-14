@@ -1,1 +1,22 @@
-<h1>Welcome home!</h1>
+{% extends 'base.html' %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}?{% now 'U'}">
+<link rel="stylesheet" href="{% static 'home.css' %}?{% now 'U'}">
+<script src="https://kit.fontawesome.com/bd5445f265.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block main %}
+<div class="body">
+ <h1>Welcome to Grocery Tracker</h1>
+ <p>List of things thats needs to be completed</p>
+ <p>1. Add sidebar functionality</p>
+ <p>2. Add algoirthm system</p>
+ <p>3. Add printing functionality where user can print inventory list needed (DONE!)</p>
+ <p>4. General cleanup and look + feel of site</p>
+ <p>5. Fix database and individual user system (DONE!)</p>
+ <p>6. Add password reset feature</p>
+
+</div>
+{% endblock %}

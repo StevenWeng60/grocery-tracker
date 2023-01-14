@@ -10,7 +10,7 @@ nav .modifyinventory>a:hover {
 /* CSS for grocery inventory block */
 .inventorycontainer {
  height: 70vh;
- max-width: 150rem;
+ width: 97%;
  background-color: rgb(211, 221, 231);
  border: 2px solid rgb(163, 182, 202);
  box-shadow: 12px 12px 2px 1px rgba(42, 76, 112);
@@ -52,14 +52,6 @@ nav .modifyinventory>a:hover {
  padding-left: 1.2em;
  padding-bottom: 0.5em;
 }
-
-
-
-
-
-
-
-
 
 
 

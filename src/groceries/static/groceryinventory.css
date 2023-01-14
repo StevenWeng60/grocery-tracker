@@ -10,7 +10,7 @@ nav .inventory>a:hover {
 /* CSS for grocery inventory block */
 .inventorycontainer {
  height: 70vh;
- max-width: 150rem;
+ width: 97%;
  background-color: rgb(211, 221, 231);
  border: 2px solid rgb(163, 182, 202);
  box-shadow: 12px 12px 2px 1px rgba(42, 76, 112);
@@ -79,6 +79,12 @@ main {
  grid-row: 3;
 }
 
+/*
+@media screen and (max-width: 1024px) {
+ .inventorycontainer{
+  width: 70vw;
+ }
+}*/
 
 @media screen and (max-width: 720px) {
  .sorter {

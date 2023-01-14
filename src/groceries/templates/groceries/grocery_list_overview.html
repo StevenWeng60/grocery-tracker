@@ -18,7 +18,9 @@
   <div class="grocerylistgenerated">
    <h1>Grocery list</h1>
    {% for instance in grocery_item_list %}
+   {% if instance.username == user.get_username %}
    <p>{{ instance.name }} ({{ instance.quantity }}) </p>
+   {% endif %}
    {% endfor %}
   </div>
  </div>

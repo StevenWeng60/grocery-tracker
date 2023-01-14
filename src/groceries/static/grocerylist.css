@@ -10,7 +10,7 @@ nav .grocerylist>a:hover {
 /* CSS for grocery list block */
 .inventorycontainer {
  height: 70vh;
- max-width: 150rem;
+ width: 150rem;
  width:100%;
  background-color: rgb(211, 221, 231);
  border: 2px solid rgb(163, 182, 202);

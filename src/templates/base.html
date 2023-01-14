@@ -18,6 +18,13 @@
         <!-- Top header -->
         <header>
             <h1>Grocery Tracker</h1>
+            <div class="account">
+                {% if user.is_authenticated %}
+                <h2 class="accountbox">Hello, {{ user }} <a href="http://127.0.0.1:8000/logout" class="signout"> Log out</a></h2>
+                {% else %}
+                <h2 class="accountbox"><a href="http://127.0.0.1:8000/login" class="signin"> Log in</a></h2>
+                {% endif %}
+            </div>
         </header>
 
         <!-- Top navbar-->

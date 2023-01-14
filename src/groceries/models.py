@@ -8,6 +8,7 @@ class Grocery(models.Model):
     name = models.CharField(max_length=30)
     quantity = models.SmallIntegerField()
     store = models.CharField(max_length=30)
+    username = models.CharField(max_length=100, default="defaultuser")
 
     class Meta:
         constraints = [
@@ -23,10 +24,12 @@ class Grocery(models.Model):
 class GroceryListItem(models.Model):
     name = models.CharField(max_length=30)
     quantity = models.SmallIntegerField()
+    username = models.CharField(max_length=100, default="defaultuser")
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['name'], name='unique_item')
+            models.UniqueConstraint(
+                fields=['name'], name='unique_item')
         ]
 
     def get_absolute_url(self):
