@@ -29,6 +29,7 @@ nav .grocerylist>a:hover {
  height: 70vh;
  display: inline-block;
  border: 5px solid black;
+ border-bottom: none;
  margin: auto;
 }
 
@@ -85,6 +86,17 @@ label[for=id_quantity] {
 
 .optionsidebarheader > .grocerylistsettings:hover {
  background-color: #8d99ae;
+}
+
+.optionlinks {
+ color:black;
+ text-decoration: none;
+}
+
+.optionlinksna {
+ background: rgb(0,0,0, 0.5);
+ color: black;
+ text-decoration: none;
 }
 
 /* GroceryList option specific options (options within an option) */

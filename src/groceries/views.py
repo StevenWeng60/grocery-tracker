@@ -77,9 +77,10 @@ def grocery_update_object_view(request, id):
 
     if request.method == "POST":
         if form.is_valid():
-            grocery = Grocery.objects.get(name=obj.name)
+            grocery = Grocery.objects.get(
+                name=obj.name, username=request.user.get_username())
             grocery.quantity = form.cleaned_data.get("quantity")
-            grocery.save(User.get_username())
+            grocery.save()
             form = UpdateForm()
         print("POST")
         return redirect('../')

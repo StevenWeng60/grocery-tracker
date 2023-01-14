@@ -15,11 +15,11 @@
  <!-- Grocery inventory -->
  <div class="inventorycontainer">
   <!-- Grocery List -->
-  <div class="grocerylistgenerated">
-   <h1>Grocery list</h1>
+  <div class="grocerylistgenerated" style="text-align:left; padding-left:20px;">
+   <h1>Grocery List (Generated {% now "SHORT_DATETIME_FORMAT" %})</h1>
    {% for instance in grocery_item_list %}
    {% if instance.username == user.get_username %}
-   <p>{{ instance.name }} ({{ instance.quantity }}) </p>
+   <p style="font-size: 16px;">{{ instance.name }} ({{ instance.quantity }}) </p>
    {% endif %}
    {% endfor %}
   </div>
@@ -30,14 +30,14 @@
 <div class="optionsidebar">
  <h1>Options</h1>
  <div class="optionsidebarheader">
-  <div class="grocerylist"><a href="http://127.0.0.1:8000/groceries/grocery_list">Grocery List</a></div>
-  <div class="grocerylistsettings"><a href="http://127.0.0.1:8000/groceries/grocery_list/settings">Settings</a></div>
+  <div class="grocerylist"><a class="optionlinks" href="http://127.0.0.1:8000/groceries/grocery_list">Grocery List</a></div>
+  <div class="grocerylistsettings"><a class="optionlinks" href="http://127.0.0.1:8000/groceries/grocery_list/settings">Settings</a></div>
  </div>
  <div class="generatelistoptions">
   <a href="{% url 'grocery-list-overview' %}"></a>
-  <button class="generatebutton" value="submit"> Generate List </a></button>
-  <button class="newbutton" value="submit">New List</button>
-  <button class="savelist" value="submit"><a href="http://127.0.0.1:8000/groceries/grocery_list/generated/pdf">Save List</a></button>
+  <button class="optionlinksna" value="submit"> Generate List </a></button>
+  <button class="optionlinksna" value="submit">New List</button>
+  <button class="savelist" value="submit"><a class="optionlinks" href="http://127.0.0.1:8000/groceries/grocery_list/generated/pdf">Save List</a></button>
  </div>
 </div>
 

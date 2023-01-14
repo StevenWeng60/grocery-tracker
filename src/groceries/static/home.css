@@ -1,13 +1,13 @@
 .body {
  display:block;
- text-align: center;
- border:5px solid;
+ border:3px solid;
+ border-radius: 10px;
  margin:25px auto auto auto;
  height: 70vh;
  width: 75%;
- padding: 10px;
- color: red;
- background-color: white;
+ padding: 12px;
+ color: black;
+ background-color: rgba(255, 255, 255, 0.5);
  grid-column: 1 / 6;
  grid-row: 3;
 }
